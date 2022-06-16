@@ -4,7 +4,7 @@ import { RouteRepositoryInterface } from "../domain/route.repository";
 export class ListAllRoutesUseCase {
   constructor(private routeRepo: RouteRepositoryInterface) {}
 
-  //Eu poderia ter as buscas aqui
+  //Eu poderia ter filtros de buscas aqui
   async execute(): Promise<CreateRouteOutput> {
     const routes = await this.routeRepo.findAll();
     return routes.map(r => r.toJSON());
