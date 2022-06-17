@@ -37,7 +37,7 @@ type CreateRouteInput = {
   points?: LatLng[];
 };
 
-type CreateRouteOutput = {
+type CreateRouteOutput = {  
   id: string,
   title: string;
   startPosition: LatLng;
