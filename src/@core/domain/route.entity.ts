@@ -1,6 +1,6 @@
-import crypto from "crypto";
+import crypto from 'crypto';
 
-export type LatLng = {lat: number, lng: number }; //Declaração do tipo
+export type LatLng = { lat: number; lng: number }; //Declaração do tipo
 
 //Definindo minhas propriedades da minha entidade Route
 export type RouteProps = {
@@ -16,8 +16,8 @@ export class Route {
   // com exceção de points
   public readonly id: string;
   public props: Required<RouteProps>;
-  constructor(props: RouteProps, id?:string) {
-    this.id = id || crypto.randomUUID()
+  constructor(props: RouteProps, id?: string) {
+    this.id = id || crypto.randomUUID();
     this.props = {
       ...props,
       points: props.points || [], //precisa quebrar pois pode ser vazio, se props.points for vazio, vai iniciar com []
@@ -25,7 +25,7 @@ export class Route {
   }
 
   // Atualizando o meu title, a alteraçao das propriedades da minha entidade
-  // ficarão sempre a cargo da minha entidade, pois fazem parte da regra de negócio. 
+  // ficarão sempre a cargo da minha entidade, pois fazem parte da regra de negócio.
   // Qualquer regra de negócio precisa ser executada pelos metodos das Entidades
   // Entidades anêmicas é ficar usando set para fazer as coisas, nao deixando claro
   // as regras de negócio.

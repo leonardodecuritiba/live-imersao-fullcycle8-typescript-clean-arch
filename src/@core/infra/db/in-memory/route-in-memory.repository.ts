@@ -1,5 +1,5 @@
-import { Route } from "../../domain/route.entity";
-import { RouteRepositoryInterface } from "../../domain/route.repository";
+import { Route } from '../../../domain/route.entity';
+import { RouteRepositoryInterface } from '../../../domain/route.repository';
 
 //É a Implementação da minha interface
 //Aqui eu faria a implementação do armazenamento do banco de dados por exemplo

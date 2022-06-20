@@ -1,12 +1,12 @@
-import { Route, RouteProps } from "../../domain/route.entity";
-import { RouteInMemoryRepository } from "./route-in-memory.repository";
+import { Route, RouteProps } from '../../../domain/route.entity';
+import { RouteInMemoryRepository } from './route-in-memory.repository';
 
 //FAZER O TESTE DO MEU REPOSITÓRIO
-describe("RouteInMemoryRepository Test", () => {
-  it("should insert a new route", async () => {
+describe('RouteInMemoryRepository Test', () => {
+  it('should insert a new route', async () => {
     const repository = new RouteInMemoryRepository();
     const routeProps: RouteProps = {
-      title: "minha rota",
+      title: 'minha rota',
       startPosition: { lat: 0, lng: 1 },
       endPosition: { lat: 2, lng: 3 },
     };

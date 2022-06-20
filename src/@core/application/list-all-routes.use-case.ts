@@ -1,5 +1,5 @@
-import { LatLng } from "../domain/route.entity";
-import { RouteRepositoryInterface } from "../domain/route.repository";
+import { LatLng } from '../domain/route.entity';
+import { RouteRepositoryInterface } from '../domain/route.repository';
 
 export class ListAllRoutesUseCase {
   constructor(private routeRepo: RouteRepositoryInterface) {}
@@ -7,7 +7,7 @@ export class ListAllRoutesUseCase {
   //Eu poderia ter filtros de buscas aqui
   async execute(): Promise<CreateRouteOutput> {
     const routes = await this.routeRepo.findAll();
-    return routes.map(r => r.toJSON());
+    return routes.map((r) => r.toJSON());
   }
 }
 
