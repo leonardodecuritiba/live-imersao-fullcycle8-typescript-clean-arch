@@ -16,14 +16,31 @@ export class Route {
   // com exceção de points
   public readonly id: string;
   public props: Required<RouteProps>;
-  constructor(props: RouteProps, id?: string) {
+  private constructor(props: RouteProps, id?: string) {
     this.id = id || crypto.randomUUID();
+
+    //vamos flexibilizar a instanciação do meu Route, pois o typeorm
+    //precisa instanciar, com ele vazio.
+    if (!props) {
+      //@ts-expect-error used for ORM
+      this.props = {};
+      return;
+    }
+
     this.props = {
       ...props,
       points: props.points || [], //precisa quebrar pois pode ser vazio, se props.points for vazio, vai iniciar com []
     };
   }
 
+  /*
+  Agora na programação, eu vou ser obrigado a usar uma função "factory", para instanciar o objeto da classe.
+  O ORM vai usar o construtor convencional, onde será permitido as propriedades vazias. 
+  Mas em programação, a gente protegeu com o create:
+  */
+  static create(props: RouteProps, id?: string) {
+    return new Route(props, id);
+  }
   // Atualizando o meu title, a alteraçao das propriedades da minha entidade
   // ficarão sempre a cargo da minha entidade, pois fazem parte da regra de negócio.
   // Qualquer regra de negócio precisa ser executada pelos metodos das Entidades

@@ -18,7 +18,7 @@ export class CreateRouteUseCase {
 
   async execute(input: CreateRouteInput): Promise<CreateRouteOutput> {
     //Meu caso de uso irá executar a criação da rota e vai usar o repositóiro para poder salvar essa rota
-    const route = new Route(input);
+    const route = Route.create(input);
     //antes de devolver a minha rota, eu vou inserir ela em um lugar.
     //Por isso o meu caso de uso não é uma regra pura, pois envolve acessar um meio externo
     //Mas esse meio externo será encapsulado pelo meu repositório.

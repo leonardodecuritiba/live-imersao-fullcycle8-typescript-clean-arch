@@ -1,4 +1,4 @@
-import { Route } from 'src/@core/domain/route.entity';
+import { Route } from '../../../domain/route.entity';
 import { EntitySchema } from 'typeorm';
 
 export const RouteSchema = new EntitySchema<Route>({
